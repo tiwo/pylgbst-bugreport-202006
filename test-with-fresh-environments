@@ -36,7 +36,12 @@ mask_for_privacy()
 }
 
 
-for variant in pygatt gatt gattlib bluepy 
+for variant in \
+	pygatt \
+	gatt \
+	gattlib \
+	bluepy \
+	#
 do
 	mkdir -p "results"
 
