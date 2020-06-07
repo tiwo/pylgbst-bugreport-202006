@@ -27,12 +27,14 @@ wait_for_keypress() {
 	done
 }
 
+
 mask_for_privacy()
 {
 	sed -e 's/00:16:53:b.:..:../00:16:53:bX:XX:XX/g' \
 	    -e 's/\(:[0-9A-Fa-f]\{2\}\)\{5\}/:XX:XX:XX:XX:XX/g' \
 	    -i "$1"
 }
+
 
 for variant in pygatt gatt gattlib bluepy 
 do
@@ -42,7 +44,7 @@ do
 	pip freeze > "results/$variant.pip-freeze.txt"
 
 	>&2 echo "---------------------------------------------------------------------------------"
-	>&2 echo "Ready to try using \"$variant\". Please activate the Lego Hub & press a key here!"
+	>&2 echo "Ready to try using \"$variant\". Please activate the Lego Hub & press ENTER!"
 	wait_for_keypress
 
 	script -c "python list-peripherals.py" \
