@@ -1,2 +1,6 @@
 pylgbst
 gattlib
+
+
+# ! apt install pkg-config libboost-python-dev libboost-thread-dev libbluetooth-dev libglib2.0-dev python-dev
+# (or similar packages for Python 3)
