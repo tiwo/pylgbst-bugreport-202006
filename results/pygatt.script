@@ -1,0 +1,116 @@
+Script started on 2020-06-07 16:18:14+01:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="49"]
+INFO:root:Trying get_connection_bluepy
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 35, in get_connection_bluepy
+    from pylgbst.comms.cbluepy import BluepyConnection
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cbluepy.py", line 5, in <module>
+    from bluepy import btle
+ModuleNotFoundError: No module named 'bluepy'
+
+INFO:root:Trying get_connection_bluegiga
+DEBUG:comms-pygatt:Trying to connect client to MoveHub with MAC: 00:16:53:bX:XX:XX
+INFO:pygatt.backends.bgapi.bgapi:Initialized new BGAPI backend
+INFO:pygatt.backends.bgapi.bgapi:Auto-detecting serial port for BLED112
+DEBUG:pygatt.backends.bgapi.util:Found 1 serial USB devices
+DEBUG:pygatt.backends.bgapi.util:Checking serial USB device: /dev/ttyAMA0 - ttyAMA0
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 13, in get_connection_bluegiga
+    return BlueGigaConnection().connect(hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cpygatt.py", line 26, in connect
+    adapter.start()
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/bgapi/bgapi.py", line 203, in start
+    self._detect_device_port()
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/bgapi/bgapi.py", line 147, in _detect_device_port
+    raise BGAPIError("Unable to auto-detect BLED112 serial port")
+pygatt.backends.bgapi.exceptions.BGAPIError: Unable to auto-detect BLED112 serial port
+
+INFO:root:Trying get_connection_gatt
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 23, in get_connection_gatt
+    from pylgbst.comms.cgatt import GattConnection
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cgatt.py", line 6, in <module>
+    import gatt
+ModuleNotFoundError: No module named 'gatt'
+
+INFO:root:Trying get_connection_gattool
+DEBUG:comms-pygatt:Trying to connect client to MoveHub with MAC: 00:16:53:bX:XX:XX
+DEBUG:pygatt.backends.gatttool.gatttool:gatttool_cmd=gatttool -i hci0 -I
+INFO:pygatt.backends.gatttool.gatttool:Running...
+INFO:comms-pygatt:Discovering devices...
+INFO:pygatt.backends.gatttool.gatttool:Starting BLE scan
+INFO:pygatt.backends.gatttool.gatttool:Discovered A8:XX:XX:XX:XX:XX (None)
+INFO:pygatt.backends.gatttool.gatttool:Discovered 00:XX:XX:XX:XX:XX (None)
+INFO:pygatt.backends.gatttool.gatttool:Discovered name of 00:XX:XX:XX:XX:XX as Move Hub
+INFO:pygatt.backends.gatttool.gatttool:Discovered D4:XX:XX:XX:XX:XX (None)
+INFO:pygatt.backends.gatttool.gatttool:Found 3 BLE devices
+DEBUG:comms-pygatt:Devices: [{'address': 'A8:XX:XX:XX:XX:XX', 'name': None}, {'address': '00:XX:XX:XX:XX:XX', 'name': 'Move Hub'}, {'address': 'D4:XX:XX:XX:XX:XX', 'name': None}]
+DEBUG:comms:Checking device name: None, MAC: A8:XX:XX:XX:XX:XX
+DEBUG:comms:Checking device name: Move Hub, MAC: 00:XX:XX:XX:XX:XX
+INFO:comms:Found Move Hub at 00:XX:XX:XX:XX:XX
+INFO:pygatt.backends.gatttool.gatttool:Connecting to 00:XX:XX:XX:XX:XX with timeout=5.0
+INFO:__main__:===> get_connection_auto(hub_mac='00:16:53:bX:XX:XX') returned <pylgbst.comms.cpygatt.GattoolConnection object at 0xb653d290>
+DEBUG:pygatt.device:Looking up handle for characteristic 00001624-1212-efde-1623-785feabcd123
+DEBUG:pygatt.backends.gatttool.gatttool:Found characteristic 00002a05-0000-1000-8000-00805f9b34fb, value handle: 0x3
+DEBUG:pygatt.backends.gatttool.gatttool:Found characteristic 00002a00-0000-1000-8000-00805f9b34fb, value handle: 0x7
+DEBUG:pygatt.backends.gatttool.gatttool:Found characteristic 00002a01-0000-1000-8000-00805f9b34fb, value handle: 0x9
+DEBUG:pygatt.backends.gatttool.gatttool:Found characteristic 00002a04-0000-1000-8000-00805f9b34fb, value handle: 0xb
+DEBUG:pygatt.backends.gatttool.gatttool:Found characteristic 00001624-1212-efde-1623-785feabcd123, value handle: 0xe
+DEBUG:pygatt.device:Found <Characteristic uuid=00001624-1212-efde-1623-785feabcd123 handle=14>
+DEBUG:pygatt.backends.gatttool.gatttool:Sending cmd=char-write-req 0x0f 0100
+INFO:pygatt.backends.gatttool.gatttool:Sent cmd=char-write-req 0x0f 0100
+INFO:pygatt.device:Subscribed to uuid=00001624-1212-efde-1623-785feabcd123
+DEBUG:comms-pygatt:Writing to handle 15: b'0100'
+DEBUG:pygatt.backends.gatttool.gatttool:Sending cmd=char-write-req 0x0f 0100
+ERROR:pygatt.backends.gatttool.gatttool:No response received
+Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 574, in char_write_handle
+    self.sendline(cmd)
+  File "/usr/lib/python3.7/contextlib.py", line 119, in __exit__
+    next(self.gen)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 191, in event
+    self.wait(event, timeout)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 157, in wait
+    raise NotificationTimeout()
+pygatt.exceptions.NotificationTimeout: None
+Traceback (most recent call last):
+  File "list-peripherals.py", line 18, in <module>
+    hub = MoveHub(connection=conn)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/hub.py", line 200, in __init__
+    super(MoveHub, self).__init__(connection)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/hub.py", line 49, in __init__
+    self.connection.enable_notifications()
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/__init__.py", line 47, in enable_notifications
+    self.write(ENABLE_NOTIFICATIONS_HANDLE, ENABLE_NOTIFICATIONS_VALUE)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cpygatt.py", line 50, in write
+    return self._conn_hnd.char_write_handle(handle, bytearray(data))
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/device.py", line 17, in wrapper
+    return func(self, *args, **kwargs)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/device.py", line 48, in char_write_handle
+    self._backend.char_write_handle(self, handle, *args, **kwargs)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 50, in wrapper
+    return func(self, *args, **kwargs)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 574, in char_write_handle
+    self.sendline(cmd)
+  File "/usr/lib/python3.7/contextlib.py", line 119, in __exit__
+    next(self.gen)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 191, in event
+    self.wait(event, timeout)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 157, in wait
+    raise NotificationTimeout()
+pygatt.exceptions.NotificationTimeout: None
+Exception ignored in: <function Hub.__del__ at 0xb6545e40>
+Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/hub.py", line 53, in __del__
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cpygatt.py", line 46, in disconnect
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/device.py", line 17, in wrapper
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/device.py", line 52, in disconnect
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pygatt/backends/gatttool/gatttool.py", line 49, in wrapper
+pygatt.exceptions.NotConnectedError: 
+
+Script done on 2020-06-07 16:18:48+01:00 [COMMAND_EXIT_CODE="1"]

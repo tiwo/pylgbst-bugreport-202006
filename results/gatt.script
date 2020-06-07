@@ -1,0 +1,75 @@
+Script started on 2020-06-07 16:19:04+01:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="49"]
+INFO:root:Trying get_connection_bluepy
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 35, in get_connection_bluepy
+    from pylgbst.comms.cbluepy import BluepyConnection
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cbluepy.py", line 5, in <module>
+    from bluepy import btle
+ModuleNotFoundError: No module named 'bluepy'
+
+INFO:root:Trying get_connection_bluegiga
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 11, in get_connection_bluegiga
+    from pylgbst.comms.cpygatt import BlueGigaConnection
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cpygatt.py", line 3, in <module>
+    import pygatt
+ModuleNotFoundError: No module named 'pygatt'
+
+INFO:root:Trying get_connection_gatt
+Module 'dbus' not found
+Please run: sudo apt-get install python3-dbus
+See also: https://github.com/getsenic/gatt-python#installing-gatt-sdk-for-python
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/gatt/gatt_linux.py", line 2, in <module>
+    import dbus
+ModuleNotFoundError: No module named 'dbus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 23, in get_connection_gatt
+    from pylgbst.comms.cgatt import GattConnection
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cgatt.py", line 6, in <module>
+    import gatt
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/gatt/__init__.py", line 1, in <module>
+    from .gatt import DeviceManager, Device, Service, Characteristic
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/gatt/gatt.py", line 6, in <module>
+    from .gatt_linux import *
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/gatt/gatt_linux.py", line 9, in <module>
+    sys.exit(1)
+SystemExit: 1
+
+INFO:root:Trying get_connection_gattool
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 17, in get_connection_gattool
+    from pylgbst.comms.cpygatt import GattoolConnection
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cpygatt.py", line 3, in <module>
+    import pygatt
+ModuleNotFoundError: No module named 'pygatt'
+
+INFO:root:Trying get_connection_gattlib
+DEBUG:root:Failed: Traceback (most recent call last):
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 53, in get_connection_auto
+    return fn(controller, hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 29, in get_connection_gattlib
+    from pylgbst.comms.cgattlib import GattLibConnection
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/comms/cgattlib.py", line 6, in <module>
+    from gattlib import DiscoveryService, GATTRequester
+ModuleNotFoundError: No module named 'gattlib'
+
+Traceback (most recent call last):
+  File "list-peripherals.py", line 16, in <module>
+    conn = get_connection_auto(hub_mac=hub_mac)
+  File "/bugreport/_testing-environment/lib/python3.7/site-packages/pylgbst/__init__.py", line 60, in get_connection_auto
+    raise Exception("Failed to autodetect connection, make sure you have installed prerequisites")
+Exception: Failed to autodetect connection, make sure you have installed prerequisites
+
+Script done on 2020-06-07 16:19:04+01:00 [COMMAND_EXIT_CODE="1"]
